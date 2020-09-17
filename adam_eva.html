@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Apple (){
+        this.weight = 10;
+        this.decrease = function (){
+            let k =this.isEmpty();
+            if(!k) {
+                this.weight -= 1;
+            }
+        }
+        this.isEmpty = function (){
+            let k = this.getWeight();
+            if (k < 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        this.getWeight = function (){
+            return this.weight;
+        }
+    }
+
+    function Human(name,gender,weight){
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+
+        this.getName = function (){
+            return this.name;
+        }
+        this.getGender = function (){
+            return this.gender;
+        }
+        this.getWeight = function (){
+            return this.weight;
+        }
+        this.talk = function (){
+            let k = this.getGender();
+            if(k == 'male'){
+                alert('im adam');
+            }else{
+                alert('im eva');
+            }
+        }
+        this.setApple =function(apple){
+            this.apple = apple;
+        }
+        this.checkApple = function (){
+            return !(this.apple.isEmpty());
+        }
+        this.eatApple = function (){
+            this.apple.decrease();
+            this.setWeight();
+        }
+        this.setWeight = function (){
+            this.weight+=1;
+        }
+
+    }
+    let adam = new Human('Adam','male',100);
+    let eva = new Human('Eva','female',100);
+    let tao1 = new Apple();
+    console.log(adam.getName());
+    console.log(adam.getWeight());
+    adam.setApple(tao1);
+    console.log(tao1.getWeight());
+    console.log(tao1.isEmpty());
+    console.log(adam.checkApple());
+    adam.eatApple();
+    console.log(tao1.getWeight());
+    console.log(adam.getWeight());
+    adam.talk();
+
+
+
+</script>
+</body>
+</html>
